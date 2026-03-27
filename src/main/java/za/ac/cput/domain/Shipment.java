@@ -1,10 +1,10 @@
 package za.ac.cput.domain;
 
 /**
- * Shipment
+ * Shipment.java
  * Shipment model class
- * Shipment Builder
- * Simphiwe 221549323
+ * Author: Simphiwe (221549323)
+ * Date: 25 March 2026
  */
 
 import java.time.LocalDate;
@@ -18,7 +18,6 @@ public class Shipment {
     private final String status;
     private final String carrier;
 
-
     private Shipment(Builder builder) {
         this.shipmentId = builder.shipmentId;
         this.orderId = builder.orderId;
@@ -27,7 +26,6 @@ public class Shipment {
         this.status = builder.status;
         this.carrier = builder.carrier;
     }
-
 
     public String getShipmentId() {
         return shipmentId;
@@ -64,7 +62,6 @@ public class Shipment {
                 ", carrier='" + carrier + '\'' +
                 '}';
     }
-
 
     public static class Builder {
         private String shipmentId;
@@ -104,12 +101,19 @@ public class Shipment {
             return this;
         }
 
-
         public Shipment build() {
             return new Shipment(this);
         }
+
+
+        public Builder copy(Shipment shipment) {
+            this.shipmentId = shipment.shipmentId;
+            this.orderId = shipment.orderId;
+            this.shipmentDate = shipment.shipmentDate;
+            this.deliveryDate = shipment.deliveryDate;
+            this.status = shipment.status;
+            this.carrier = shipment.carrier;
+            return this;
+        }
     }
-
 }
-
-
